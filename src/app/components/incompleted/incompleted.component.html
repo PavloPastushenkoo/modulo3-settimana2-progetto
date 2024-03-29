@@ -1,0 +1,54 @@
+<div *ngFor="let user of users" class="card mb-3">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="user-image-container">
+                    <img
+                        [src]="user.image"
+                        alt="{{ user.firstName }} {{ user.lastName }}"
+                        class="rounded-circle user-image"
+                    />
+                </div>
+            </div>
+            <div class="col-md-10">
+                <h2 class="card-title">
+                    {{ user.firstName }} {{ user.lastName }}
+                </h2>
+                <h4 class="card-subtitle mb-2 text-muted">Cose da fare:</h4>
+                <ul class="list-group">
+                    <ng-container
+                        *ngIf="
+                            groupedTodos[user.id] &&
+                                groupedTodos[user.id].length > 0;
+                            else noTodo
+                        "
+                    >
+                        <li
+                            class="list-group-item"
+                            *ngFor="let todo of groupedTodos[user.id]"
+                            [ngClass]="{
+                                'completed-task': todo.completed,
+                                'incomplete-task': !todo.completed
+                            }"
+                        >
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    [checked]="todo.completed"
+                                    (change)="toggleCompleted(todo)"
+                                />
+                                <label>{{ todo.todo }}</label>
+                            </div>
+                        </li>
+                    </ng-container>
+                    <ng-template #noTodo>
+                        <li class="list-group-item">
+                            Nessuna task da completare
+                        </li>
+                    </ng-template>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

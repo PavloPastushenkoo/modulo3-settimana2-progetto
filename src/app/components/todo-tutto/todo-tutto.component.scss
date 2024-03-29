@@ -1,0 +1,20 @@
+.user-image-container {
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+}
+
+.user-image {
+    width: 100%;
+    height: auto;
+}
+
+.completed-task {
+    background-color: rgb(0, 255, 0); /* Rosso per task completate */
+    color: rgb(0, 0, 0); /* Testo bianco per contrasto */
+}
+
+.incomplete-task {
+    background-color: #ff0000; /* Verde per task non completate */
+    color: rgb(0, 0, 0); /* Testo bianco per contrasto */
+}
