@@ -28,7 +28,7 @@ export class IncompletedComponent implements OnInit {
     }
     groupTodosByUser(todos: Todo[]): { [userId: number]: Todo[] } {
         const grouped: { [userId: number]: Todo[] } = {};
-        const incompleteTodos = todos.filter((todo) => !todo.completed); // Filtra solo le todo non completate
+        const incompleteTodos = todos.filter((todo) => !todo.completed);
         incompleteTodos.forEach((todo) => {
             if (!grouped[todo.userId]) {
                 grouped[todo.userId] = [];

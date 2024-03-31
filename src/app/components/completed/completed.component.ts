@@ -30,7 +30,7 @@ export class CompletedComponent implements OnInit {
 
     groupCompletedTodosByUser(todos: Todo[]): { [userId: number]: Todo[] } {
         const grouped: { [userId: number]: Todo[] } = {};
-        const completedTodos = todos.filter((todo) => todo.completed); // Filtra solo le todo completate
+        const completedTodos = todos.filter((todo) => todo.completed);
         completedTodos.forEach((todo) => {
             if (!grouped[todo.userId]) {
                 grouped[todo.userId] = [];
@@ -41,6 +41,5 @@ export class CompletedComponent implements OnInit {
     }
 
     toggleCompleted(todo: Todo): void {
-        // Non è necessario per i todo completati
     }
 }
